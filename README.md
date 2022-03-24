@@ -66,7 +66,7 @@ Finally, to start the controller, run the following in a new terminal:
 roslaunch tankscrub hardcoded_planner
 ```
 
-**The only relevant file to the control stack (with URSim) is `ur5_hardcoded_planner` and it's corresponding launch file `hardcoded_planner.launch`!**
+**The only relevant file to the control stack (with URSim) is `ur5_hardcoded_planner` and it's corresponding launch file `hardcoded_planner.launch`!** Everything else is there merely for reference with different use cases.
 
 Note that you may need to stop and start the `external_control` URCap between trajectory executions-- no clue why. It's a bit quirky.
 Furthermore, this controller is probably a bit dangerous to run on a real robot-- Moveit's cartesian path planning is a bit wonky.
