@@ -1,16 +1,3 @@
-## Quickstart
-
-```
-source ur_driver_ws/devel/setup.sh
-
-roslaunch ur_robot_driver ur5_bringup.launch robot_ip:=192.168.56.25
-
-roslaunch ur5_moveit_config ur5_moveit_planning_execution.launch
-
-roslaunch ur5_moveit_config moveit_rviz.launch rviz_config:=$(rospack find ur5_moveit_config)/launch/moveit.rviz
-
-```
-
 ## Controller Setup
 
 Note: This setup was initially built and tested on an **Ubuntu 18.04** system running **ROS Melodic**. Your milage ~~may~~ _will_ vary if using a different setup.
@@ -41,6 +28,8 @@ So for example, the `elbow_joint` would look like:
 The above joint limits are important because they prevent the trajectory planner from freaking out when planning with the original [-2pi, 2pi] joint limits of a UR robot.
 
 (When editing `joint_limits.yaml`, be sure to keep spacing correct-- and with spaces, not tabs. YAML is finnicky like that.)
+
+Finally, clone this repo into your catkin workspace's `src` folder and build with `catkin build`.
 
 ## URSim Setup
 
@@ -76,6 +65,8 @@ Finally, to start the controller, run the following in a new terminal:
 ```
 roslaunch tankscrub hardcoded_planner
 ```
+
+**The only relevant file to the control stack (with URSim) is `ur5_hardcoded_planner` and it's corresponding launch file `hardcoded_planner.launch`!**
 
 Note that you may need to stop and start the `external_control` URCap between trajectory executions-- no clue why. It's a bit quirky.
 Furthermore, this controller is probably a bit dangerous to run on a real robot-- Moveit's cartesian path planning is a bit wonky.
