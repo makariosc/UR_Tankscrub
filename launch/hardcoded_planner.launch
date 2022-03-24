@@ -1,0 +1,22 @@
+<launch>
+
+  <!-- Static transforms for each of the four walls -->
+  <!-- See http://wiki.ros.org/tf2_ros#static_transform_publisher -->
+  <!-- Note here that all transforms are rotated such that for each face, positive Y points outwards and positive X is to the right. -->
+  
+  <node pkg="tf2_ros" type="static_transform_publisher" name="wall_yminus_tf_broadcaster" 
+        args="0 0.65 0 0 0 0 base wall_yminus" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="wall_yplus_tf_broadcaster" 
+        args="0 -0.65 0 3.14159 0 0 base wall_yplus" />       
+  <node pkg="tf2_ros" type="static_transform_publisher" name="wall_xminus_tf_broadcaster" 
+        args="0.65 0 0 4.7124 0 0 base wall_xminus" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="wall_xplus_tf_broadcaster" 
+        args="-0.65 0 0 1.5708 0 0 base wall_xplus" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="wall_zplus_tf_broadcaster"
+        args="0 0 0.65 0 0 1.5708 base wall_zplus" />
+
+  <node name="ur5_hardcoded_planner" pkg="tankscrub" 
+        type="ur5_hardcoded_planner" respawn="false" output="screen">
+  </node>
+  
+</launch>

@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="ur5_move_group_interface_demo" pkg="tankscrub" type="ur5_move_group_interface_demo" respawn="false" output="screen">
+  </node>
+
+</launch>
